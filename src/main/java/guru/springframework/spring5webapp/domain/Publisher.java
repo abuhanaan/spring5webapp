@@ -14,13 +14,38 @@ public class Publisher {
     private Long id;
 
     private String name;
-    private String address;
+    private String addressLine1;
+    private String city;
+    private String zip;
+    private String state;
 
     public Publisher() {}
 
-    public Publisher(String name, String address) {
-        this.name = name;
-        this.address = address;
+    @Override
+    public String toString() {
+        return "Publisher{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", addressLine1='" + addressLine1 + '\'' +
+                ", city='" + city + '\'' +
+                ", zip='" + zip + '\'' +
+                ", state='" + state + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Publisher publisher = (Publisher) o;
+
+        return Objects.equals(id, publisher.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
     }
 
     public Long getId() {
@@ -39,35 +64,35 @@ public class Publisher {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getAddressLine1() {
+        return addressLine1;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddressLine1(String addressLine1) {
+        this.addressLine1 = addressLine1;
     }
 
-    @Override
-    public String toString() {
-        return "Publisher{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                '}';
+    public String getCity() {
+        return city;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Publisher publisher = (Publisher) o;
-
-        return Objects.equals(id, publisher.id);
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    @Override
-    public int hashCode() {
-        return id != null ? id.hashCode() : 0;
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 }
